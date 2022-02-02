@@ -17,7 +17,10 @@ const SignIn = () => {
         <InputField type={'text'} placeholder={'Enter name here'} />
       </div>
       <div>
-
+        <span>Phone:</span>
+        <InputField type={'number'} placeholder={'+234 090 7541 9360'} />
+      </div>
+      <div>
         <span>Email</span>
         <InputField type="email" placeholder={'user@example.com'} />
       </div>
@@ -42,7 +45,10 @@ export default SignIn;
 const SignInWrapper = styled.main`
 width:30vw;
 background:purple;
-margin: 1rem auto;
+margin:  auto;
+@media screen and (max-width:768px){
+  width:100%;
+}
 .displayImg{
   display:flex;
   align-items:center;
