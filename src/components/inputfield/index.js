@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { colors } from '../../colors';
 
 
-const InputField = ({ type, placeholder }) => {
+const InputField = ({ type, placeholder, height }) => {
   const [value, setValue] = useState('')
 
   const handleChange = ({ target }) => {
@@ -12,7 +12,7 @@ const InputField = ({ type, placeholder }) => {
 
   }
   return <InputWrap>
-    {type !== 'password' ? <input type={type ? type : 'text'} placeholder={placeholder} required onChange={handleChange} value={value} className='input' />
+    {type !== 'password' ? <input type={type ? type : 'text'} placeholder={placeholder} required onChange={handleChange} value={value} className='input' height={height} />
       : <Pwrapper>
         <input type='password' placeholder={placeholder} onChange={handleChange} required value={value} />
         <span className='pIcon'> <img src='/images/Vector.svg' /></span>
@@ -29,7 +29,8 @@ const InputWrap = styled.div`
  border-radius:10px;
  & > input{
    width:100%;
-   height:100%;
+   height:${props => props.height ? props.height : '100%'
+  };
    min-height: 3rem;
    color:${colors.grey_text};
    font-size:13px;
