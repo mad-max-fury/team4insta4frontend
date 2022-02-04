@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { colors } from '../../colors';
 import ConnectButton from '../../components/ConnectBtn';
 import InputField from '../../components/inputfield';
 import { Link } from 'react-router-dom';
-const SignIn = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState()
+const SignUp = () => {
+  const user = {
+    name: '',
+    phone: '',
+    email: '',
+
+  }
   return <SignInWrapper>
     <div>
       <div className='displayImg' style={{
@@ -13,7 +18,15 @@ const SignIn = () => {
       }}><img src='/images/intime.png' /></div>
     </div>
     <div>
-      <div> <h3>Welcome Back!</h3></div>
+      <div> <h3>Create Account</h3></div>
+      <div>
+        <span>Name:</span>
+        <InputField type={'text'} placeholder={'Enter name here'} />
+      </div>
+      <div>
+        <span>Phone:</span>
+        <InputField type={'number'} placeholder={'+234 090 7541 9360'} />
+      </div>
       <div>
         <span>Email</span>
         <InputField type="email" placeholder={'user@example.com'} />
@@ -21,16 +34,16 @@ const SignIn = () => {
       <div>
         <span>Password</span>
         <InputField type="password" placeholder={'8 Characters'} />
-        <div className='wrc'><span>
-          <input type={'checkbox'}></input>
-          <span>Remember me</span>
-        </span> <span>Forgotten password?</span></div>
       </div>
       <div>
-        <ConnectButton text={'Sign In'} pathname={'/findfriend'} />
+        <span>Add Photo:</span>
+        <InputField type={'file'} placeholder={'+234 090 7541 9360'} />
+      </div>
+      <div>
+        <ConnectButton pathname={'/login'} text={'Create Account'} />
       </div>
 
-      <div className="login"><h4>don't have an account? <span><Link to={'/signup'}>Create</Link></span></h4></div>
+      <div className="login"><h4>Already have an account? <span><Link to={'/login'}>Login</Link> </span></h4></div>
 
     </div>
 
@@ -38,14 +51,12 @@ const SignIn = () => {
   </SignInWrapper>;
 };
 
-export default SignIn;
+export default SignUp;
 
 const SignInWrapper = styled.main`
 width:30vw;
 background:purple;
-margin: auto;
-// border:1px solid red;
-height:100vh;
+margin:  auto;
 @media screen and (max-width:768px){
   width:100%;
 }
@@ -76,20 +87,11 @@ height:100vh;
   
   }
   & > div:first-of-type{
-       padding-bottom:3rem;
       & > h3{
       color:${colors.main_color};
       text-align:center;
       align-self:center;
       margin:center;
-    }
-  }
-  div.wrc{
-    // border:1px solid red;
-    display:flex;
-    justify-content:space-between;
-    & > span:last-of-type{
-     color:${colors.secondary_color};
     }
   }
   & > div: last-of-type{

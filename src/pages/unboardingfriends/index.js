@@ -4,13 +4,19 @@ import InputField from '../../components/inputfield';
 import ConnectButton from '../../components/ConnectBtn';
 import { colors } from '../../colors';
 import Usercard from '../../containers/usercard';
+import { useNavigate } from 'react-router-dom';
 const SuggestedFriends = () => {
+  const navigate = useNavigate()
+  const handleSeeFriends = () => {
+    navigate('/searchpage')
+  }
   return <SuggestedFriendsWrapper>
     <div>
       <div className='displayImg' style={{
         backgroundImage: `Url("/images/elementflower.svg")`, backgroundSize: 'cover', objectFit: 'fit',
       }}>
         <div>
+          {/* <span className=''></span> */}
           <span>Skip</span>
         </div>
         <div>
@@ -29,8 +35,8 @@ const SuggestedFriends = () => {
         }
 
       </main>
-      <div className='seeMoreBtn'>
-        <span>See More</span>
+      <div className='seeMoreBtn' onClick={handleSeeFriends} >
+        <span >See More</span>
       </div>
 
     </div>
