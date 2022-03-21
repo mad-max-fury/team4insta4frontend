@@ -11,109 +11,100 @@ const SignUp = () => {
     email: '',
 
   }
-  return <SignInWrapper>
+  return <SignUpWrapper className='signUpWrapper'>
+
     <div>
-      <div className='displayImg' style={{
-        backgroundImage: `Url("/images/elementflower.svg")`, backgroundSize: 'cover', objectFit: 'fit',
-      }}><img src='/images/intime.png' /></div>
+      <div>
+        <div> <h3>Create Account</h3></div>
+        <div>
+          <span>Full Name:</span>
+          <InputField type={'text'} placeholder={'Enter name here'} />
+        </div>
+        <div>
+          <span>Email</span>
+          <InputField type="email" placeholder={'user@example.com'} />
+        </div>
+        <div>
+          <span>Phone Number:</span>
+          <InputField type={'number'} placeholder={'+234 090 7541 9360'} />
+        </div>
+        <div>
+          <span>Password</span>
+          <InputField type="password" placeholder={'8 Characters'} />
+        </div>
+
+        <div>
+          <ConnectButton pathname={'/login'} text={'Create Account'} />
+        </div>
+
+        <div className="login"><h4>Already have an account? <span><Link to={'/login'}>Login</Link> </span></h4></div>
+
+      </div>
     </div>
-    <div>
-      <div> <h3>Create Account</h3></div>
-      <div>
-        <span>Name:</span>
-        <InputField type={'text'} placeholder={'Enter name here'} />
+    <div style={{ backgroundImage: `Url('images/Group 113.svg')`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+      <div className='displayImg'>
+        <img src='/images/intime.png' />
       </div>
-      <div>
-        <span>Phone:</span>
-        <InputField type={'number'} placeholder={'+234 090 7541 9360'} />
-      </div>
-      <div>
-        <span>Email</span>
-        <InputField type="email" placeholder={'user@example.com'} />
-      </div>
-      <div>
-        <span>Password</span>
-        <InputField type="password" placeholder={'8 Characters'} />
-      </div>
-      <div>
-        <span>Add Photo:</span>
-        <InputField type={'file'} placeholder={'+234 090 7541 9360'} />
-      </div>
-      <div>
-        <ConnectButton pathname={'/login'} text={'Create Account'} />
-      </div>
-
-      <div className="login"><h4>Already have an account? <span><Link to={'/login'}>Login</Link> </span></h4></div>
-
     </div>
 
-
-  </SignInWrapper>;
+  </SignUpWrapper>;
 };
 
 export default SignUp;
 
-const SignInWrapper = styled.main`
-width:30vw;
-background:purple;
-margin:  auto;
-@media screen and (max-width:768px){
-  width:100%;
-}
-.displayImg{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  height:100%;
-
-}
-& > div:first-of-type{
-  height:30vh;
-}
-& > div:last-of-type{
-  padding:1rem;
-  // border:1px solid red;
-  background:${colors.general_bg};
-  display:flex;
-  border-top-left-radius:5rem;
-  flex-flow:column;
-  gap:1rem;
-  text-align:start;
-  & > div{
+const SignUpWrapper = styled.main`
+display:flex;
+  max-width:71%;  
+height:100vh;
+margin:auto;
+background-color:${colors.general_bg};
+  & > div:first-of-type{
+    width:55%;
     display:flex;
+    &> div{
+       display:flex;
     flex-direction:column;
     gap:1rem;
-    color
+    width:60%;
+    gap:1rem;
+    margin:auto;
+      & > div{
+      display:flex;
+      flex-direction:column;
+      gap:1rem;
+    }
+      & > div:first-of-type{
+          & > h3{
+          color:${colors.main_color};
+          text-align:center;
+          align-self:center;
+          margin:0;
+          margin:center;
+          font-size:40px;
+        }
+      }
+      & > div: nth-of-type(6){
+         & > button{
+           width:100%;
+         }
+      }
+        & > div: last-of-type{
+          & > h4{
+          text-align: center;
+          align-self:center;
+          margin: center;
+          color:${colors.main_color}
+        }
+
+        }
   
-  }
-  & > div:first-of-type{
-      & > h3{
-      color:${colors.main_color};
-      text-align:center;
-      align-self:center;
-      margin:center;
     }
   }
-  & > div: last-of-type{
-    & > h4{
-    text-align: center;
-    align-self:center;
-    margin: center;
-    color:${colors.main_color}
-   }
-
+   & > div:last-of-type{
+    width:45%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    // border:1px solid red;
   }
-  .login{
-    span{
-
-      color: ${colors.secondary_color};
-    }
-  }
-  .displayImg{
-    margin-top: 20px;
-    
-  }
-  
-}
-
 `

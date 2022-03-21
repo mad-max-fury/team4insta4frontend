@@ -16,9 +16,12 @@ function App() {
     <Routes>
       <Route path='/' exact element={<OnboardPage />} />
       <Route path='/signup' element={<SignUp />} />
-      <Route path='/findfriend' element={<CreateMoMentPost />} />
       <Route path='/login' element={<SignIn />} />
-      <Route path='/searchpage' element={<SearchUsersPage />} />
+      <Route path='/findfriend' element={<SearchUsersPage />} />
+      <Route path='/postmoment' element={<CreateMoMentPost />} />
+      <Route path='/Home' element={<FeedLanding />} />
+
+
       <Route path={'/profile'} exact element={<ProfilePage />} />
 
 

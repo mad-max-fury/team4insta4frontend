@@ -18,7 +18,7 @@ const Usercard = () => {
     </div>
     <div className='followBtn'>
       {
-        !follow ? <div onClick={() => setFollow(true)}>Follow</div> : <div onClick={() => setFollow(false)}>Unfollow</div>
+        !follow ? <div onClick={() => setFollow(true)}>Follow</div> : <div onClick={() => setFollow(false)}>Following</div>
       }
     </div>
   </User>;
@@ -30,7 +30,7 @@ const User = styled.div`
 width:clac(100% - 2rem);
  display:flex;
  flex-flow:row;
- border-top:1px solid ${colors.secondary_color};
+//  border-top:1px solid ${colors.secondary_color};
  border-bottom:1px solid ${colors.secondary_color};
  padding:1rem;
 
